@@ -96,17 +96,35 @@ print('{:<8} {:<8} {:<8} {:<8}'.format(Mask[0:8], Mask[8:16], Mask[16:24], Mask[
 # print('{:<8} {:<8} {:<8} {:<8}'.format(int(Mask[0:8],2), int(Mask[8:16],2), int(Mask[16:24],2), int(Mask[24:32],2)))
 # print('{:<8} {:<8} {:<8} {:<8}'.format(Mask[0:8], Mask[8:16], Mask[16:24], Mask[24:32]))
 
+# access_template = [
+#     'switchport mode access', 'switchport access vlan {}',
+#     'switchport nonegotiate', 'spanning-tree portfast',
+#     'spanning-tree bpduguard enable'
+# ]
+
+# trunk_template = [
+#     'switchport trunk encapsulation dot1q', 'switchport mode trunk',
+#     'switchport trunk allowed vlan {}'
+# ]
+# dict = {'access':access_template,'trunk':trunk_template}
+# ac = input('Введите режим работы интерфейса (access/trunk): ')
+# print('interface {}'.format(input('Введите тип и номер интерфейса: ')))
+# print('\n'.join(dict.get(ac)).format(input('Введите номер влан(ов): ')))
+
 access_template = [
     'switchport mode access', 'switchport access vlan {}',
     'switchport nonegotiate', 'spanning-tree portfast',
     'spanning-tree bpduguard enable'
 ]
-
 trunk_template = [
     'switchport trunk encapsulation dot1q', 'switchport mode trunk',
     'switchport trunk allowed vlan {}'
 ]
+vlan = {
+    'access':'Введите номер влана: ',
+    'trunk': 'Введите номер вланов: '
+}
 dict = {'access':access_template,'trunk':trunk_template}
 ac = input('Введите режим работы интерфейса (access/trunk): ')
 print('interface {}'.format(input('Введите тип и номер интерфейса: ')))
-print('\n'.join(dict.get(ac)).format(input('Введите номер влан(ов): ')))
+print('\n'.join(dict.get(ac)).format(input(vlan[ac])))
