@@ -1,9 +1,10 @@
 import pytest
-import task_9_2
 import sys
-sys.path.append('..')
-
+import os
 from common_functions import check_function_exists, check_function_params
+sys.path.append('..')
+import task_9_2
+
 
 
 def test_function_created():
