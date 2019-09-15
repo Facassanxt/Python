@@ -1,6 +1,10 @@
 from sys import argv
+import os
 
-f = open('7.1.txt')
+for currentFolder, subFolders, fileNames in os.walk('.\\7'):
+    print('В папке {} :\n\tСодержатся папки: {}\n\tСодержатся файлы: {}'.format(currentFolder,subFolders, fileNames))
+
+f = open('7\\7.1.txt')
 ospf_route = f.read()
 ospf_route = ospf_route.replace('O','OSPF').replace('[', '').replace(']', '').replace(',', '')
 RESULT = ospf_route.split(' ')
@@ -14,8 +18,8 @@ print()
 f.close()
 
 # ignore = ['duplex', 'alias', 'Current configuration']
-# config_sw1 = open(argv[1] + '.txt')
-# cleared = open(argv[2] + '.txt', 'w')
+# config_sw1 = open('7\\' + argv[1] + '.txt')
+# cleared = open('7\\' + argv[2] + '.txt', 'w')
 # for line in config_sw1:
 #     result = list(set(ignore) & set(line[0:len(line)-1].split(' ')))
 #     if line.startswith('!') or len(result) != 0:
@@ -27,7 +31,7 @@ f.close()
 
 phrase='10'
 a = []
-with open('7.3.txt','r') as f:
+with open('7\\7.3.txt','r') as f:
     for (i, line) in enumerate(f):
         b = line.split(maxsplit=1)
         if len(b) != 0 and argv[1] == b[0]:
