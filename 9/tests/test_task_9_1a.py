@@ -1,10 +1,9 @@
 import pytest
-import task_9_1a
 import sys
-sys.path.append('..')
-
+import os
 from common_functions import check_function_exists, check_function_params
-
+sys.path.append('..')
+import task_9_1a
 
 def test_function_created():
     check_function_exists(task_9_1a, 'generate_access_config')
