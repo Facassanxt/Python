@@ -1,32 +1,29 @@
-# -*- coding: utf-8 -*-
-'''
-Задание 9.4
-
-Создать функцию convert_config_to_dict, которая обрабатывает конфигурационный файл коммутатора и возвращает словарь:
-* Все команды верхнего уровня (глобального режима конфигурации), будут ключами.
-* Если у команды верхнего уровня есть подкоманды, они должны быть в значении у соответствующего ключа, в виде списка (пробелы в начале строки надо удалить).
-* Если у команды верхнего уровня нет подкоманд, то значение будет пустым списком
-
-У функции должен быть один параметр config_filename, который ожидает как аргумент имя конфигурационного файла.
-
-Проверить работу функции на примере файла config_sw1.txt
-
-При обработке конфигурационного файла, надо игнорировать строки, которые начинаются с '!',
-а также строки в которых содержатся слова из списка ignore.
-
-Для проверки надо ли игнорировать строку, использовать функцию ignore_command.
-
-
-Ограничение: Все задания надо выполнять используя только пройденные темы.
-'''
-
 ignore = ['duplex', 'alias', 'Current configuration']
 
-def convert_config_to_dict():
+def convert_config_to_dict(config_filename):
+    dict = {}
+    value = []
+    flag = False
+    with open('C:\\Users\\Facassanxt\\Desktop\\Python\\9\\' + config_filename,'r') as f:
+        for line in f:
+            line = line.rstrip()
+            if line == '' or line.find('!') != -1 or ignore_command(line,ignore) == True:
+                continue
+            else:
+                if flag == False:
+                    key = line
+                    flag = True
+                elif line[0] == ' ':
+                    value.append(line[1:])
+                else:
+                    dict.update({key:value})
+                    value = []
+                    key = line
+        dict.update({key:value})
+    return dict
     
-
 def ignore_command(command, ignore):
     return any(word in command for word in ignore)
 
 if __name__ == "__main__":
-    print(convert_config_to_dict('config_sw2.txt'))
+    print(convert_config_to_dict('config_sw1.txt'))
