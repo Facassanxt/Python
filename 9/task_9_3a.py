@@ -1,20 +1,3 @@
-# -*- coding: utf-8 -*-
-'''
-Задание 9.3a
-
-Дополнить функцию:
-    - добавить поддержку конфигурации, когда настройка access-порта выглядит так:
-            interface FastEthernet0/20
-                switchport mode access
-                duplex auto
-      То есть, порт находится в VLAN 1
-
-В таком случае, в словарь портов должна добавляться информация, что порт в VLAN 1
-      Пример словаря: {'FastEthernet0/12': 10,
-                       'FastEthernet0/14': 11,
-                       'FastEthernet0/20': 1 }
-
-'''
 def get_int_vlan_map(config_filename):
     access = {}
     trunk = {}
