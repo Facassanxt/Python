@@ -4,7 +4,7 @@ import os
 for currentFolder, subFolders, fileNames in os.walk('.\\7'):
     print('В папке {} :\n\tСодержатся папки: {}\n\tСодержатся файлы: {}'.format(currentFolder,subFolders, fileNames))
 
-f = open('7\\7.1.txt')
+f = open('07\\7.1.txt')
 ospf_route = f.read()
 ospf_route = ospf_route.replace('O','OSPF').replace('[', '').replace(']', '').replace(',', '')
 RESULT = ospf_route.split(' ')

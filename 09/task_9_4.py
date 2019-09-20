@@ -4,7 +4,7 @@ def convert_config_to_dict(config_filename):
     dict = {}
     value = []
     flag = False
-    with open('C:\\Users\\Facassanxt\\Desktop\\Python\\9\\' + config_filename,'r') as f:
+    with open('09\\' + config_filename,'r') as f:
         for line in f:
             line = line.rstrip()
             if line == '' or line.find('!') != -1 or ignore_command(line,ignore) == True:

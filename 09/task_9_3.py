@@ -1,7 +1,7 @@
 def get_int_vlan_map(config_filename):
     access = {}
     trunk = {}
-    with open('C:\\Users\\Facassanxt\\Desktop\\Python\\9\\' + config_filename,'r') as f:
+    with open('09\\' + config_filename,'r') as f:
         for line in f:
             line = line.rstrip()
             if line.find('FastEthernet') != -1:

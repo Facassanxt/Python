@@ -3,7 +3,7 @@ def create_network_map(filenames):
     flag = True
     dict = {}
     for name_file in filenames:
-        with open('D:\\Python\\11\\'+ name_file +'.txt','r') as f:
+        with open('11\\'+ name_file +'.txt','r') as f:
             for line in f:
                 if line.find('show cdp neighbors') != -1:
                     name = line.split('>')[0]

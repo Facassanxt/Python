@@ -1,6 +1,6 @@
 def parse_cdp_neighbors(command_output):
     flag = True
-    with open('C:\\Users\\Facassanxt\\Desktop\\Python\\11\\sh_cdp_n_sw1.txt','r') as f:
+    with open('11\\sh_cdp_n_sw1.txt','r') as f:
         dict = {}
         for line in f:
             if line.find('show cdp neighbors') != -1:
