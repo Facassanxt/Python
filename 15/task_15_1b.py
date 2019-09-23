@@ -17,5 +17,6 @@ def get_ip_from_cfg(file_name):
                     list_value = []
     return dict
 
+
 if __name__ == "__main__":
     print(get_ip_from_cfg('config_r2'))
